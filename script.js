@@ -29,9 +29,16 @@ const btnDeleteLast = document.querySelector(".btn-delete-last");
 const displayedNumber = document.querySelector(".displayedNumber");
 
 // Actions corrspondants au click sur les touchers du clavier
+
+// Bouton AC //
 btnAc.addEventListener("click", () => {
   resetUserInput();
 });
+btnAc.addEventListener("touchstart", () => {
+  resetUserInput();
+});
+
+//Bouton Delete //
 btnDeleteLast.addEventListener("click", () => {
   if (userInput.length > 1) {
     userInput.pop();
@@ -46,33 +53,43 @@ btnComma.addEventListener("click", () => {
   result = userInput.join("");
   displayedNumber.textContent = result;
 });
+// Bouton 0 //
 btn0.addEventListener("click", () => {
   addNumberInUserInput("0");
 });
+// Bouton 1//
 btn1.addEventListener("click", () => {
   addNumberInUserInput("1");
 });
+// Bouton 2//
 btn2.addEventListener("click", () => {
   addNumberInUserInput("2");
 });
+// Bouton 3//
 btn3.addEventListener("click", () => {
   addNumberInUserInput("3");
 });
+// Bouton 4 //
 btn4.addEventListener("click", () => {
   addNumberInUserInput("4");
 });
+// Bouton 5 //
 btn5.addEventListener("click", () => {
   addNumberInUserInput("5");
 });
+// Bouton 6 //
 btn6.addEventListener("click", () => {
   addNumberInUserInput("6");
 });
+// Bouton 7 //
 btn7.addEventListener("click", () => {
   addNumberInUserInput("7");
 });
+// Bouton 8//
 btn8.addEventListener("click", () => {
   addNumberInUserInput("8");
-});
+}); 
+// Bouton 9 //
 btn9.addEventListener("click", () => {
   addNumberInUserInput("9");
 });
