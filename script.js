@@ -1,7 +1,9 @@
 // Made by chris76LH
 // Declaration de variables et fonctions
-let userInput = [""];
+let userInput = [];
 let result = "";
+let completeUserInput = [];
+let completeResult = "";
 
 function addNumberInUserInput(number) {
   userInput.push(number);
@@ -11,11 +13,15 @@ function addNumberInUserInput(number) {
 
 function resetUserInput() {
   userInput = [];
+  result = "";
   displayedNumber.textContent = "0";
 }
 
-// Recuperation des elements HTML des touches du clavier
-const btnAc = document.querySelector(".btnAc");
+function displayFinalResult(value) {
+  return eval(value);
+}
+
+// Recuperation des elements HTML des touches du clavier //
 const btn0 = document.querySelector(".btn0");
 const btn1 = document.querySelector(".btn1");
 const btn2 = document.querySelector(".btn2");
@@ -26,53 +32,20 @@ const btn6 = document.querySelector(".btn6");
 const btn7 = document.querySelector(".btn7");
 const btn8 = document.querySelector(".btn8");
 const btn9 = document.querySelector(".btn9");
+const btnAc = document.querySelector(".btnAc");
+const btnMc = document.querySelector(".btnMc");
 const btnComma = document.querySelector(".btn-comma");
 const btnDeleteLast = document.querySelector(".btn-delete-last");
 const displayedNumber = document.querySelector(".displayedNumber");
 const btnPlusMinor = document.querySelector(".btn-plus-sign-or-minus-sign");
+const btnPlus = document.querySelector(".btn-plus");
+const btnEqual = document.querySelector(".equal");
+const btnMinor = document.querySelector(".btn-minor");
+const btnMultiplier = document.querySelector(".btn-multiplier");
+const btnDiviser = DocumentType.querySelector(".btn-diviser")
 
+// Actions correspondants au click sur les touchers du clavier
 
-// Actions corrspondants au click sur les touchers du clavier
-// Bouton AC //
-btnAc.addEventListener("click", () => {
-  resetUserInput();
-});
-//Bouton Delete //
-btnDeleteLast.addEventListener("click", () => {
-  if (userInput.length > 1) {
-    userInput.pop();
-    result = userInput.join("");
-    displayedNumber.textContent = result;
-  } else {
-    resetUserInput();
-  }
-});
-//Bouton Virgule//
-btnComma.addEventListener("click", () => {
-  if (userInput[userInput.length - 1] !== "." && !userInput.includes(".")) {
-    if (userInput[0]==null) {
-    userInput.push("0.");
-    result = userInput.join("");
-    displayedNumber.textContent = result;}
-    else {userInput.push(".");
-    result = userInput.join("");
-    displayedNumber.textContent = result;}
-  } else {
-    return;
-  }
-});
-// Bouton Inverser //
-btnPlusMinor.addEventListener("click", () => {
-  if (userInput[0] !== "-") {
-    userInput.unshift("-");
-    result = userInput.join("");
-    displayedNumber.textContent = result;
-  } else {
-    userInput.shift();
-    result = userInput.join("");
-    displayedNumber.textContent = result;
-  }
-});
 // Bouton 0 //
 btn0.addEventListener("click", () => {
   addNumberInUserInput("0");
@@ -112,4 +85,109 @@ btn8.addEventListener("click", () => {
 // Bouton 9 //
 btn9.addEventListener("click", () => {
   addNumberInUserInput("9");
+});
+
+// Bouton AC //
+btnAc.addEventListener("click", () => {
+  resetUserInput();
+});
+
+// Bouton MC //
+btnMc.addEventListener("click", () => {
+  resetUserInput();
+  completeUserInput = []
+  completeResult = ""
+});
+
+//Bouton Delete //
+btnDeleteLast.addEventListener("click", () => {
+  if (userInput.length > 1) {
+    userInput.pop();
+    result = userInput.join("");
+    displayedNumber.textContent = result;
+  } else {
+    resetUserInput();
+  }
+});
+//Bouton Virgule//
+btnComma.addEventListener("click", () => {
+  if (userInput[userInput.length - 1] !== "." && !userInput.includes(".")) {
+    if (userInput[0] == null) {
+      userInput.push("0.");
+      result = userInput.join("");
+      displayedNumber.textContent = result;
+    } else {
+      userInput.push(".");
+      result = userInput.join("");
+      displayedNumber.textContent = result;
+    }
+  } else {
+    return;
+  }
+});
+// Bouton Inverser //
+btnPlusMinor.addEventListener("click", () => {
+  if (userInput[0] !== "-") {
+    userInput.unshift("-");
+    result = userInput.join("");
+    displayedNumber.textContent = result;
+  } else {
+    userInput.shift();
+    result = userInput.join("");
+    displayedNumber.textContent = result;
+  }
+});
+
+// Les boutons operateurs //
+
+// Bouton + //
+
+btnPlus.addEventListener("click", () => {
+  completeUserInput.push(...userInput);
+  completeUserInput.push("+");
+  completeResult = completeUserInput.join("");
+  resetUserInput();
+  displayedNumber.textContent = "";
+});
+
+// Bouton - //
+
+btnMinor.addEventListener("click", () => {
+  completeUserInput.push(...userInput);
+  completeUserInput.push("-");
+  completeResult = completeUserInput.join("");
+  resetUserInput();
+  displayedNumber.textContent = "";
+});
+
+// Bouton * //
+
+btnMultiplier.addEventListener("click", () => {
+  completeUserInput.push(...userInput);
+  completeUserInput.push("*");
+  completeResult = completeUserInput.join("");
+  resetUserInput();
+  displayedNumber.textContent = "";
+});
+
+// Bouton Diviser //
+
+btnDiviser.addEventListener("click", () => {
+  completeUserInput.push(...userInput);
+  completeUserInput.push("/");
+  completeResult = completeUserInput.join("");
+  resetUserInput();
+  displayedNumber.textContent = "";
+});
+
+// Bouton = //
+
+btnEqual.addEventListener("click", () => {
+  completeUserInput.push(...userInput);
+  completeResult = completeUserInput.join("");
+  finalResult = displayFinalResult(completeResult);
+  completeUserInput = [finalResult];
+  userInput.push(finalResult);
+  resetUserInput();
+  displayedNumber.textContent = finalResult;
 });
