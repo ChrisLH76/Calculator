@@ -1,3 +1,5 @@
+// Made by chris76LH
+// Declaration de variables et fonctions
 let userInput = [""];
 let result = "";
 
@@ -12,7 +14,7 @@ function resetUserInput() {
   displayedNumber.textContent = "0";
 }
 
-// Recuperation des elements HTML des touhces du clavier
+// Recuperation des elements HTML des touches du clavier
 const btnAc = document.querySelector(".btnAc");
 const btn0 = document.querySelector(".btn0");
 const btn1 = document.querySelector(".btn1");
@@ -29,8 +31,8 @@ const btnDeleteLast = document.querySelector(".btn-delete-last");
 const displayedNumber = document.querySelector(".displayedNumber");
 const btnPlusMinor = document.querySelector(".btn-plus-sign-or-minus-sign");
 
-// Actions corrspondants au click sur les touchers du clavier
 
+// Actions corrspondants au click sur les touchers du clavier
 // Bouton AC //
 btnAc.addEventListener("click", () => {
   resetUserInput();
@@ -71,7 +73,6 @@ btnPlusMinor.addEventListener("click", () => {
     displayedNumber.textContent = result;
   }
 });
-
 // Bouton 0 //
 btn0.addEventListener("click", () => {
   addNumberInUserInput("0");
