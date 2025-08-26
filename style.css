@@ -1,4 +1,8 @@
 /* Made By Chris76LH */
+:root {
+  --orange: #fe9e0b;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -54,7 +58,7 @@ body {
 }
 
 .displayedNumber {
-  color: white;
+  color: var(--orange);
 }
 
 .keyboard {
@@ -87,8 +91,9 @@ body {
   /* border: 1px solid white; */
   height: 100%;
   width: 74px;
-  border-radius: 100%;
-  display: flex;
+  border-radius: 50%;
+  background: #232323;
+  box-shadow: 5px 5px 11px #0e0e0e, -5px -5px 11px #383838;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -104,16 +109,34 @@ span {
 }
 
 .number {
-  background-color: #333333;
+  background: #333333;
+  box-shadow: 5px 5px 11px #141414, -5px -5px 11px #525252;
   color: white;
 }
 
+.number:active {
+  background: #333333;
+  box-shadow: inset 5px 5px 11px #141414, inset -5px -5px 11px #525252;
+}
+
 .operator {
-  background-color: #fe9e0b;
+  background: #fe9e0b;
+  box-shadow: 5px 5px 11px #663f04, -5px -5px 11px #fffd12;
+}
+
+.operator:active {
+  background: #fe9e0b;
+  box-shadow: inset 5px 5px 11px #663f04, inset -5px -5px 11px #fffd12;
 }
 
 .other {
-  background-color: #a5a5a5;
+  background: #b1b1b1;
+  box-shadow: 5px 5px 11px #474747, -5px -5px 11px #ffffff;
+}
+
+.other:active {
+  background: #b1b1b1;
+  box-shadow: inset 5px 5px 11px #474747, inset -5px -5px 11px #ffffff;
 }
 
 .empty {
