@@ -42,7 +42,7 @@ const btnPlus = document.querySelector(".btn-plus");
 const btnEqual = document.querySelector(".equal");
 const btnMinor = document.querySelector(".btn-minor");
 const btnMultiplier = document.querySelector(".btn-multiplier");
-const btnDiviser = DocumentType.querySelector(".btn-diviser")
+const btnDiviser = document.querySelector(".btn-diviser")
 
 // Actions correspondants au click sur les touchers du clavier
 
