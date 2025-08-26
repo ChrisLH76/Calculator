@@ -41,7 +41,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: #1d1d1d;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .display--container {

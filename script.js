@@ -1,4 +1,4 @@
-let userInput = [];
+let userInput = [""];
 let result = "";
 
 function addNumberInUserInput(number) {
@@ -27,6 +27,7 @@ const btn9 = document.querySelector(".btn9");
 const btnComma = document.querySelector(".btn-comma");
 const btnDeleteLast = document.querySelector(".btn-delete-last");
 const displayedNumber = document.querySelector(".displayedNumber");
+const btnPlusMinor = document.querySelector(".btn-plus-sign-or-minus-sign");
 
 // Actions corrspondants au click sur les touchers du clavier
 
@@ -34,10 +35,6 @@ const displayedNumber = document.querySelector(".displayedNumber");
 btnAc.addEventListener("click", () => {
   resetUserInput();
 });
-btnAc.addEventListener("touchstart", () => {
-  resetUserInput();
-});
-
 //Bouton Delete //
 btnDeleteLast.addEventListener("click", () => {
   if (userInput.length > 1) {
@@ -46,13 +43,35 @@ btnDeleteLast.addEventListener("click", () => {
     displayedNumber.textContent = result;
   } else {
     resetUserInput();
-  };
+  }
 });
+//Bouton Virgule//
 btnComma.addEventListener("click", () => {
-  userInput.push(".");
-  result = userInput.join("");
-  displayedNumber.textContent = result;
+  if (userInput[userInput.length - 1] !== "." && !userInput.includes(".")) {
+    if (userInput[0]==null) {
+    userInput.push("0.");
+    result = userInput.join("");
+    displayedNumber.textContent = result;}
+    else {userInput.push(".");
+    result = userInput.join("");
+    displayedNumber.textContent = result;}
+  } else {
+    return;
+  }
 });
+// Bouton Inverser //
+btnPlusMinor.addEventListener("click", () => {
+  if (userInput[0] !== "-") {
+    userInput.unshift("-");
+    result = userInput.join("");
+    displayedNumber.textContent = result;
+  } else {
+    userInput.shift();
+    result = userInput.join("");
+    displayedNumber.textContent = result;
+  }
+});
+
 // Bouton 0 //
 btn0.addEventListener("click", () => {
   addNumberInUserInput("0");
@@ -88,7 +107,7 @@ btn7.addEventListener("click", () => {
 // Bouton 8//
 btn8.addEventListener("click", () => {
   addNumberInUserInput("8");
-}); 
+});
 // Bouton 9 //
 btn9.addEventListener("click", () => {
   addNumberInUserInput("9");
